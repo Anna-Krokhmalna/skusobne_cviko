@@ -8,7 +8,7 @@ SERVER=$(echo "$search" | cut -d '/' -f1-3)
 
 curl -s "$search" |
 tr -d '\n' | tr '<' '\n' |
-grep '<img' | grep 'src=' |
+grep -i '^img' | grep 'src=' |
 sed -E 's/.*src="([^"]+)".*/\1/' |
 
 while read LINE
